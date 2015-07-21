@@ -80,11 +80,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zH0-SZ-EkZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q6R-MD-tGp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hours You Want to Work:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLl-MP-97g">
-                                <rect key="frame" x="52" y="436" width="114" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hours You Want to Work:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLl-MP-97g">
+                                <rect key="frame" x="16" y="212" width="114" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -92,22 +92,15 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-X6-gSi">
                                 <rect key="frame" x="5" y="578" width="768" height="162"/>
                             </pickerView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="g8r-3i-bEF">
-                                <rect key="frame" x="40" y="44" width="334" height="384"/>
-                            </mapView>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="plp-Sa-Oxb">
-                                <rect key="frame" x="268" y="449" width="94" height="29"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                            </stepper>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4I-9N-23b">
-                                <rect key="frame" x="132" y="500" width="148" height="162"/>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4I-9N-23b">
+                                <rect key="frame" x="133" y="58" width="148" height="162"/>
                                 <connections>
                                     <outlet property="dataSource" destination="TKw-sC-8GY" id="AcV-yG-JZU"/>
                                     <outlet property="delegate" destination="TKw-sC-8GY" id="jny-o7-CgP"/>
                                 </connections>
                             </pickerView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srO-nr-cnO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Search Parameters" id="5wg-Bm-RiA">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="yxI-fe-fob">
@@ -118,14 +111,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-EY-1cC">
+                                <rect key="frame" x="52" y="321" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzL-il-pbX">
+                                <rect key="frame" x="0.0" y="430" width="320" height="30"/>
+                                <state key="normal" title="See What Fits">
+                                    <color key="titleColor" red="1" green="0.023573720190035896" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="plp-Sa-Oxb">
+                                <rect key="frame" x="168" y="225" width="94" height="29"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72617830914111003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zH0-SZ-EkZ" firstAttribute="top" secondItem="plp-Sa-Oxb" secondAttribute="bottom" constant="271" id="0id-cF-hM2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t4I-9N-23b" secondAttribute="trailing" constant="24" id="1us-Lp-vZv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="plp-Sa-Oxb" secondAttribute="trailing" constant="36" id="2Ui-qc-xCO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="g8r-3i-bEF" secondAttribute="trailing" constant="24" id="45T-Pg-NyN"/>
-                            <constraint firstItem="plp-Sa-Oxb" firstAttribute="top" secondItem="g8r-3i-bEF" secondAttribute="bottom" constant="8" id="7mk-AS-vxA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="srO-nr-cnO" secondAttribute="trailing" constant="-16" id="8ZS-Bs-h6Q"/>
                             <constraint firstItem="eLl-MP-97g" firstAttribute="leading" secondItem="q6R-MD-tGp" secondAttribute="leadingMargin" constant="36" id="CMC-xt-GOG"/>
                             <constraint firstItem="t4I-9N-23b" firstAttribute="top" secondItem="plp-Sa-Oxb" secondAttribute="bottom" constant="22" id="DfG-X6-DYz"/>
@@ -135,15 +143,10 @@
                             <constraint firstItem="plp-Sa-Oxb" firstAttribute="leading" secondItem="eLl-MP-97g" secondAttribute="trailing" constant="2" id="VFQ-qR-BhZ"/>
                             <constraint firstItem="srO-nr-cnO" firstAttribute="leading" secondItem="q6R-MD-tGp" secondAttribute="leadingMargin" constant="-16" id="ZSH-lS-UQX"/>
                             <constraint firstItem="eLl-MP-97g" firstAttribute="leading" secondItem="q6R-MD-tGp" secondAttribute="leadingMargin" constant="-10" id="apn-au-FEg"/>
-                            <constraint firstItem="eLl-MP-97g" firstAttribute="top" secondItem="g8r-3i-bEF" secondAttribute="bottom" constant="8" id="bd9-Qo-xot"/>
-                            <constraint firstItem="plp-Sa-Oxb" firstAttribute="top" secondItem="g8r-3i-bEF" secondAttribute="bottom" constant="21" id="i1K-G8-BEa"/>
                             <constraint firstItem="plp-Sa-Oxb" firstAttribute="leading" secondItem="eLl-MP-97g" secondAttribute="trailing" constant="8" id="jA2-6I-B2g"/>
-                            <constraint firstItem="zH0-SZ-EkZ" firstAttribute="top" secondItem="g8r-3i-bEF" secondAttribute="bottom" constant="308" id="kIf-5A-Zxw"/>
                             <constraint firstItem="plp-Sa-Oxb" firstAttribute="leading" secondItem="eLl-MP-97g" secondAttribute="trailing" constant="3" id="nX6-3i-N5Y"/>
                             <constraint firstItem="srO-nr-cnO" firstAttribute="top" secondItem="q6R-MD-tGp" secondAttribute="topMargin" id="nki-Gs-yEa"/>
                             <constraint firstItem="t4I-9N-23b" firstAttribute="top" secondItem="eLl-MP-97g" secondAttribute="bottom" constant="8" id="qTG-Il-eQ9"/>
-                            <constraint firstItem="g8r-3i-bEF" firstAttribute="top" secondItem="srO-nr-cnO" secondAttribute="bottom" id="u3x-yM-yAm"/>
-                            <constraint firstItem="g8r-3i-bEF" firstAttribute="leading" secondItem="q6R-MD-tGp" secondAttribute="leadingMargin" constant="24" id="uVb-yv-vRY"/>
                             <constraint firstItem="zH0-SZ-EkZ" firstAttribute="top" secondItem="eLl-MP-97g" secondAttribute="bottom" constant="258" id="vFm-ar-83k"/>
                             <constraint firstItem="eLl-MP-97g" firstAttribute="leading" secondItem="q6R-MD-tGp" secondAttribute="leadingMargin" constant="36" id="ySg-H4-eEH"/>
                         </constraints>
@@ -156,7 +159,6 @@
                                 <exclude reference="apn-au-FEg"/>
                                 <exclude reference="ySg-H4-eEH"/>
                                 <exclude reference="qTG-Il-eQ9"/>
-                                <exclude reference="7mk-AS-vxA"/>
                                 <exclude reference="SAT-Ir-Qiz"/>
                                 <exclude reference="VFQ-qR-BhZ"/>
                                 <exclude reference="jA2-6I-B2g"/>
@@ -167,15 +169,37 @@
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="areaOfInterestPicker" destination="t4I-9N-23b" id="cj7-1G-gPr"/>
-                        <outlet property="mapView" destination="g8r-3i-bEF" id="u2M-hK-UY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYE-46-N8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="870" y="190"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XNo-y0-zKK">
+            <objects>
+                <viewController id="VWc-Re-MaK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eWv-77-zRE"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Of-py-hn0"/>
+                    </layoutGuides>
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="cOq-Jd-rDC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hDV-Sj-pjF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="298"/>
+                            </mapView>
+                        </subviews>
+                    </scrollView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="95y-2G-jrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="-443"/>
         </scene>
     </scenes>
 </document>
