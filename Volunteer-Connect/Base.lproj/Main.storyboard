@@ -102,7 +102,7 @@
                                     <outlet property="delegate" destination="TKw-sC-8GY" id="sAL-YH-one"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOQ-hk-MWE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOQ-hk-MWE">
                                 <rect key="frame" x="58" y="126" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -211,6 +211,11 @@
                             </stepper>
                         </subviews>
                         <color key="backgroundColor" red="0.23365795544984247" green="0.78484527896017331" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZOQ-hk-MWE" secondAttribute="trailing" constant="306" id="6Zy-TI-faa"/>
+                            <constraint firstItem="ZOQ-hk-MWE" firstAttribute="top" secondItem="3gu-Xa-8Gp" secondAttribute="topMargin" constant="118" id="dbN-Fg-gIq"/>
+                            <constraint firstItem="ZOQ-hk-MWE" firstAttribute="leading" secondItem="3gu-Xa-8Gp" secondAttribute="leadingMargin" constant="50" id="quL-lT-fzh"/>
+                        </constraints>
                     </scrollView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
