@@ -32,6 +32,7 @@
     
     listOfCities = [[NSArray alloc] initWithObjects: @"Union City", @"Fremont", @"Milpitas", @"San Jose", @"Los Gatos", @"Cupertino", @"Sunnyvale", @"Mountain View", @"Los Altos", @"Palo Alto", @"Redwood City", @"San Francisco", nil];
     
+    
 }
 
 - (void) mapView: (MKMapView *) mapView didUpdateUserLocation:(MKUserLocation *)userLocation    {
