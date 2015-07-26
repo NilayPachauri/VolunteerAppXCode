@@ -9,27 +9,6 @@
 #import "UserInput.h"
 
 @implementation UserInput
-- (id)init:(NSString*)city: (NSString*)areaOfInterest: (double)numberOfHours: (bool)isSelectedMonday: (bool)isSelectedTuesday: (bool)isSelectedWednesday: (bool)isSelectedThursday: (bool)isSelectedFriday: (bool)isSelectedSaturday:(bool)isSelectedSunday{
-    
-    self = [super init];
-    if (self) {
-        // Any custom setup work goes here
-        userCity = city;
-        userAreaOfInterest = areaOfInterest;
-        
-        userNumberOfHours = numberOfHours;
-        
-        userIsSelectedMonday = isSelectedMonday;
-        userIsSelectedTuesday = isSelectedTuesday;
-        userIsSelectedWednesday = isSelectedWednesday;
-        userIsSelectedThursday = isSelectedThursday;
-        userIsSelectedFriday = isSelectedFriday;
-        userIsSelectedSaturday = isSelectedSaturday;
-        userIsSelectedSunday = isSelectedSunday;
-    }
-    return self;
-}
-
 -(NSString*)getUserCity{
     return userCity;
 }
