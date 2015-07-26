@@ -7,48 +7,72 @@
 //
 
 #import "Agency.h"
+#import "UserInput.h"
+#import <math.h>
 
 @implementation Agency
--(NSString*)getName{
+-(id)init:(NSString*)name: (NSString*)city: (NSString*)target: (NSString*)phoneNumber: (NSString*)email: (double)hours: (bool)monday: (bool)tuesday: (bool)wednesday:(bool)thursday: (bool)friday: (bool)saturday: (bool)sunday{
+    self = [super init];
+    if (self != nil) {
+        agencyName = name;
+        agencyCity = city;
+        agencyTarget = target;
+        agencyPhoneNumber = phoneNumber;
+        agencyEmail = email;
+        
+        agencyHours = hours;
+        
+        isOpenMonday = monday;
+        isOpenTuesday = tuesday;
+        isOpenWednesday = wednesday;
+        isOpenThursday = thursday;
+        isOpenFriday = friday;
+        isOpenSaturday = saturday;
+        isOpenSunday = sunday;
+    }
+    return self;
     
+}
+-(NSString*)getName{
+    return agencyName;
 }
 -(NSString*)getCity{
-    
+    return agencyCity;
 }
 -(NSString*)getTarget{
-    
+    return agencyTarget;
 }
 -(NSString*)getPhoneNumber{
-    
+    return agencyPhoneNumber;
 }
 -(NSString*)getEmail{
-    
+    return agencyEmail;
 }
 -(double)getHours{
-    
+    return agencyHours;
 }
 -(bool)getIsOpenMonday{
-    
+    return isOpenMonday;
 }
 -(bool)getIsOpenTuesday{
-    
+    return isOpenTuesday;
 }
 -(bool)getIsOpenWednesday{
-    
+    return isOpenWednesday;
 }
 -(bool)getIsOpenThursday{
-    
+    return isOpenThursday;
 }
 -(bool)getIsOpenFriday{
-    
+    return isOpenFriday;
 }
 -(bool)getIsOpenSaturday{
-    
+    return isOpenSaturday;
 }
--(bool)getISOpenSunday{
-    
+-(bool)getIsOpenSunday{
+    return isOpenSunday;
 }
--(int)percentMatch:(UserInput)userPicks{
+-(int)percentMatch:(UserInput*)userPicks{
         const int CITY_WEIGHTAGE = 40; //percent weightage
         const int HOURS_WEIGHTAGE = 30;
         const int DAYS_WEIGHTAGE = 30;
@@ -129,8 +153,9 @@
             if(daysSelected==0){daysSelected=1; daysMatched=1;}
             percentMatch = (int) (percentMatch + (DAYS_WEIGHTAGE*(daysMatched/daysSelected))); //percentMatch increases based on how many days matched out of days selected
             
-            double hoursDifference = Math.abs([userPicks getUserNumberOfHours] - agencyHours);
+            double hoursDifference = abs([userPicks getUserNumberOfHours] - agencyHours);
             percentMatch = (int) (percentMatch + (HOURS_WEIGHTAGE-(12*hoursDifference))); //should be +-<=2.5 hour difference or else the hour match isn't close enough
+        }
             return percentMatch;
 }
 @end

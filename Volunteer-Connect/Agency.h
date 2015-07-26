@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserInput.h"
 
 @interface Agency : NSObject
 {
@@ -39,8 +40,9 @@
 -(bool)getIsOpenThursday;
 -(bool)getIsOpenFriday;
 -(bool)getIsOpenSaturday;
--(bool)getISOpenSunday;
--(int)percentMatch:(UserInput)userPicks;
-//-(id)init:(NSString*)name: (NSString*)city: (NSString*)target: (NSString*)phoneNumber: (NSString*)email: (double)hours; (bool)monday: (bool)tuesday: (bool)wednesday: (bool)thursday: (bool)friday: (bool)saturday: (bool)sunday;
+-(bool)getIsOpenSunday;
+-(int)percentMatch:(UserInput*)userPicks;
+-(id)init:(NSString*)name: (NSString*)city: (NSString*)target: (NSString*)phoneNumber: (NSString*)email: (double)hours: (bool)monday: (bool)tuesday: (bool)wednesday:(bool)thursday: (bool)friday: (bool)saturday: (bool)sunday;
+
 
 @end
