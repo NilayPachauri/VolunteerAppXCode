@@ -32,8 +32,8 @@
         [strArray addObject:translation];
     }
     id myArrayElement  = [strArray objectAtIndex:1];
-    // NSLog(@"%@", myArrayElement);
-    NSLog(@"hi");
+    //NSLog(@"%@", myArrayElement);
+    //NSLog(@"hi");
     
     // this .csv file is seperated with new line character
     // if .csv is seperated by comma use "," instesd of "\n"
