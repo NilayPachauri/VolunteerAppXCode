@@ -18,12 +18,12 @@
     [super viewDidLoad];
     NSString *strPath = [[NSBundle mainBundle] pathForResource:@"VolData" ofType:@"csv"];
     NSString *strFile = [NSString stringWithContentsOfFile:strPath encoding:NSUTF8StringEncoding error:nil];
+    //NSLog(@"%@", strFile);
     if (!strFile) {
         NSLog(@"Error reading file.");
     }
     NSArray* data = [[NSArray alloc] init];
-    
-    data = [strFile componentsSeparatedByString:@"/n"];
+    data = [strFile componentsSeparatedByString:@"\n"];
     NSMutableArray *strArray = [NSMutableArray array]; // This is your 2D array
     for(int i = 0; i < [data count]; i++)
     {
@@ -31,8 +31,8 @@
         // translation is assumed to be an array with two elements
         [strArray addObject:translation];
     }
-    id myArrayElement  = [strArray objectAtIndex:1];
-    //NSLog(@"%@", myArrayElement);
+    NSString* myArrayElement  = [[strArray objectAtIndex:1] objectAtIndex:1];
+    NSLog(@"%@", myArrayElement);
     //NSLog(@"hi");
     
     // this .csv file is seperated with new line character
