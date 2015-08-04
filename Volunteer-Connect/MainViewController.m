@@ -8,13 +8,6 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()    {
-    NSArray *areasOfInterests;
-    NSArray *listOfCities;
-}
-
-@end
-
 @implementation MainViewController
 @synthesize mapView = _mapView;
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
@@ -23,10 +16,10 @@
 -(void)addAgencies:(UserInput*) userSelections{
     const int MINIMUM_MATCH = 40;
     
-    for(NSInteger* i=0; i<[listOfAgencies count]; i++)
+    for(int i=0; i<3; i++)
     {
-        if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections]) > MINIMUM_MATCH) {
-            [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i]);
+        if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections] > MINIMUM_MATCH) {
+            [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i])];
         }
     }
 }
@@ -37,10 +30,10 @@
             int j = i;
             Agency *temp = [sortedListOfAgencies objectAtIndex:i];
             while (j >= increment && [[sortedListOfAgencies objectAtIndex:(j - increment)] percentMatch:userPreferences] < [temp percentMatch:userPreferences]) {
-                sortedListOfAgencies.set(j,sortedListOfAgencies.get(j - increment));
+                [sortedListOfAgencies insertObject:[sortedListOfAgencies objectAtIndex:(j-increment)] atIndex:j];
                 j = j - increment;
             }
-            sortedListOfAgencies.set(j,temp);
+            [sortedListOfAgencies insertObject:temp atIndex:j];
         }
         if (increment == 2) {
             increment = 1;

@@ -13,8 +13,10 @@
 
 @interface MainViewController : UIViewController
 {
-    NSArray* listOfAgencies;
-    NSArray* sortedListOfAgencies;
+    NSMutableArray* listOfAgencies;
+    NSMutableArray* sortedListOfAgencies;
+    NSArray *areasOfInterests;
+    NSArray *listOfCities;
 }
 -(void)addAgencies:(UserInput*) userSelections;
 -(void)shellSortListOfAgencies: (UserInput*) userPreferences;
