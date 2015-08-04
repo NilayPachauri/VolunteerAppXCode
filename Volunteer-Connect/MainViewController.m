@@ -20,6 +20,34 @@
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
 @synthesize cityPicker = _cityPicker;
 
+-(void)addAgencies:(UserInput*) userSelections{
+    const int MINIMUM_MATCH = 40;
+    
+    for(NSInteger* i=0; i<[listOfAgencies count]; i++)
+    {
+        if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections]) > MINIMUM_MATCH) {
+            [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i]);
+        }
+    }
+}
+-(void)shellSortListOfAgencies: (UserInput*) userPreferences{
+    int increment = [sortedListOfAgencies count] / 2;
+    while (increment > 0) {
+        for (int i = increment; i < [sortedListOfAgencies count]; i++) {
+            int j = i;
+            Agency *temp = [sortedListOfAgencies objectAtIndex:i];
+            while (j >= increment && [[sortedListOfAgencies objectAtIndex:(j - increment)] percentMatch:userPreferences] < [temp percentMatch:userPreferences]) {
+                sortedListOfAgencies.set(j,sortedListOfAgencies.get(j - increment));
+                j = j - increment;
+            }
+            sortedListOfAgencies.set(j,temp);
+        }
+        if (increment == 2) {
+            increment = 1;
+        } else {
+            increment *= (5.0 / 11);
+        }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

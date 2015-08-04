@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "UserInput.h"
+#import "Agency.h"
 
 @interface MainViewController : UIViewController
+{
+    NSArray* listOfAgencies;
+    NSArray* sortedListOfAgencies;
+}
+-(void)addAgencies:(UserInput*) userSelections;
+-(void)shellSortListOfAgencies: (UserInput*) userPreferences;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
