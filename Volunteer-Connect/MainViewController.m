@@ -8,39 +8,15 @@
 
 #import "MainViewController.h"
 
+@interface MainViewController ()
+
+@end
+
 @implementation MainViewController
+
 @synthesize mapView = _mapView;
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
 @synthesize cityPicker = _cityPicker;
-
--(void)addAgencies:(UserInput*) userSelections{
-    const int MINIMUM_MATCH = 40;
-    
-    for(int i=0; i<3; i++)
-    {
-        if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections] > MINIMUM_MATCH) {
-            [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i])];
-        }
-    }
-}
--(void)shellSortListOfAgencies: (UserInput*) userPreferences{
-    int increment = [sortedListOfAgencies count] / 2;
-    while (increment > 0) {
-        for (int i = increment; i < [sortedListOfAgencies count]; i++) {
-            int j = i;
-            Agency *temp = [sortedListOfAgencies objectAtIndex:i];
-            while (j >= increment && [[sortedListOfAgencies objectAtIndex:(j - increment)] percentMatch:userPreferences] < [temp percentMatch:userPreferences]) {
-                [sortedListOfAgencies insertObject:[sortedListOfAgencies objectAtIndex:(j-increment)] atIndex:j];
-                j = j - increment;
-            }
-            [sortedListOfAgencies insertObject:temp atIndex:j];
-        }
-        if (increment == 2) {
-            increment = 1;
-        } else {
-            increment *= (5.0 / 11);
-        }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -95,6 +71,35 @@
         return areasOfInterests[row];
     }
 }
+-(void)addAgencies:(UserInput*) userSelections{
+    const int MINIMUM_MATCH = 40;
+    
+    for(int i=0; i<3; i++)
+    {
+        if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections] > MINIMUM_MATCH) {
+            [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i])];
+        }
+    }
+}
+-(void)shellSortListOfAgencies: (UserInput*) userPreferences{
+    int increment = [sortedListOfAgencies count] / 2;
+    while (increment > 0) {
+        for (int i = increment; i < [sortedListOfAgencies count]; i++) {
+            int j = i;
+            Agency *temp = [sortedListOfAgencies objectAtIndex:i];
+            while (j >= increment && [[sortedListOfAgencies objectAtIndex:(j - increment)] percentMatch:userPreferences] < [temp percentMatch:userPreferences]) {
+                [sortedListOfAgencies insertObject:[sortedListOfAgencies objectAtIndex:(j-increment)] atIndex:j];
+                j = j - increment;
+            }
+            [sortedListOfAgencies insertObject:temp atIndex:j];
+        }
+        if (increment == 2) {
+            increment = 1;
+        } else {
+            increment *= (5.0 / 11);
+        }
+    }
+
 
 /*
 #pragma mark - Navigation
@@ -105,5 +110,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+}
 @end
