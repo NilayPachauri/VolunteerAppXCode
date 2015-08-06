@@ -42,7 +42,6 @@
 -(bool)getIsOpenSaturday;
 -(bool)getIsOpenSunday;
 -(int)percentMatch:(UserInput*)userPicks;
--(id)init:(NSString*)name: (NSString*)city: (NSString*)target: (NSString*)phoneNumber: (NSString*)email: (double)hours: (bool)monday: (bool)tuesday: (bool)wednesday:(bool)thursday: (bool)friday: (bool)saturday: (bool)sunday;
-
+-(id)initWithName: (NSString*) name: (NSString*) city: (NSString*) target: (NSString*) phoneNumber: (NSString*) email: (double) hours: (bool) monday: (BOOL) tuesday: (BOOL) wednesday: (BOOL) thursday: (BOOL)friday: (BOOL) saturday: (BOOL) sunday;
 
 @end

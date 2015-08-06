@@ -11,28 +11,7 @@
 #import <math.h>
 
 @implementation Agency
--(id)init:(NSString*)name: (NSString*)city: (NSString*)target: (NSString*)phoneNumber: (NSString*)email: (double)hours: (bool)monday: (bool)tuesday: (bool)wednesday:(bool)thursday: (bool)friday: (bool)saturday: (bool)sunday{
-    self = [super init];
-    if (self != nil) {
-        agencyName = name;
-        agencyCity = city;
-        agencyTarget = target;
-        agencyPhoneNumber = phoneNumber;
-        agencyEmail = email;
-        
-        agencyHours = hours;
-        
-        isOpenMonday = monday;
-        isOpenTuesday = tuesday;
-        isOpenWednesday = wednesday;
-        isOpenThursday = thursday;
-        isOpenFriday = friday;
-        isOpenSaturday = saturday;
-        isOpenSunday = sunday;
-    }
-    return self;
-    
-}
+
 -(NSString*)getName{
     return agencyName;
 }
@@ -158,4 +137,28 @@
         }
             return percentMatch;
 }
+
+-(id)initWithName:(NSString *)name :(NSString *)city :(NSString *)target :(NSString *)phoneNumber :(NSString *)email :(double)hours :(bool)monday :(BOOL)tuesday :(BOOL)wednesday :(BOOL)thursday :(BOOL)friday :(BOOL)saturday :(BOOL)sunday   {
+    if (self = [super init])    {
+        agencyName = name;
+        agencyCity = city;
+        agencyTarget = target;
+        agencyPhoneNumber = phoneNumber;
+        agencyEmail = email;
+        
+        agencyHours = hours;
+        
+        isOpenMonday = monday;
+        isOpenTuesday = tuesday;
+        isOpenWednesday = wednesday;
+        isOpenThursday = thursday;
+        isOpenFriday = friday;
+        isOpenSaturday = saturday;
+        isOpenSunday = sunday;
+        
+        return self;
+    } else
+        return nil;
+}
+
 @end

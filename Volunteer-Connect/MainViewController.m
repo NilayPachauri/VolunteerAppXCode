@@ -170,8 +170,16 @@
         friday = [[[strArray objectAtIndex:rows] objectAtIndex:10] boolValue];
         saturday = [[[strArray objectAtIndex:rows] objectAtIndex:11] boolValue];
         sunday = [[[strArray objectAtIndex:rows] objectAtIndex:12] boolValue];
-        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
-        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
+        
+        Agency *x = [[Agency alloc] initWithName:name :city :target :phoneNumber :email :hours :monday :tuesday :wednesday :thursday :friday :saturday :sunday];
+        
+        [listOfAgencies addObject:x];
+        
+        NSLog(@"%@",[x getName]);
+        
+        //        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
+//        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
     }
+    
 }
 @end
