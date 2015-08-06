@@ -111,7 +111,67 @@
 }
 */
 }
-- (IBAction)startSearching:(id)sender {
+-(void)readFile{
+    NSString *strPath = [[NSBundle mainBundle] pathForResource:@"VolData" ofType:@"csv"];
+    NSString *strFile = [NSString stringWithContentsOfFile:strPath encoding:NSUTF8StringEncoding error:nil];
+    //NSLog(@"%@", strFile);
+    if (!strFile) {
+        NSLog(@"Error reading file.");
+    }
+    NSArray* data = [[NSArray alloc] init];
+    data = [strFile componentsSeparatedByString:@"\n"];
+    strArray = [NSMutableArray array]; // This is your 2D array
+    for(int i = 0; i < [data count]; i++)
+    {
+        NSArray *translation = [data[i] componentsSeparatedByString:@","];
+        // translation is assumed to be an array with two elements
+        [strArray addObject:translation];
+    }
+    //NSString* myArrayElement  = [[strArray objectAtIndex:1] objectAtIndex:1];
+    //NSLog(@"%@", myArrayElement);
+    //NSLog(@"hi");
     
+    // this .csv file is seperated with new line character
+    // if .csv is seperated by comma use "," instesd of "\n"
+    
+}
+
+- (IBAction)startSearching:(id)sender {
+    [self readFile];
+    NSString* name;
+    NSString* city;
+    NSString* target;
+    NSString* phoneNumber;
+    NSString* email;
+    
+    double hours;
+    
+    bool monday;
+    bool tuesday;
+    bool wednesday;
+    bool thursday;
+    bool friday;
+    bool saturday;
+    bool sunday;
+    for (int rows = 1; rows < [strArray count]; rows++)    {
+        
+        name = [[strArray objectAtIndex:rows] objectAtIndex:0];
+        city = [[strArray objectAtIndex:rows] objectAtIndex:1];
+        target = [[strArray objectAtIndex:rows] objectAtIndex:2];
+        phoneNumber = [[strArray objectAtIndex:rows] objectAtIndex:3];
+        email = [[strArray objectAtIndex:rows] objectAtIndex:4];
+
+        hours = [[[strArray objectAtIndex:rows] objectAtIndex:5] doubleValue];
+        
+        monday = [[[strArray objectAtIndex:rows] objectAtIndex:6] boolValue];
+        tuesday = [[[strArray objectAtIndex:rows] objectAtIndex:7] boolValue];
+        wednesday = [[[strArray objectAtIndex:rows] objectAtIndex:8] boolValue];
+        thursday =[[[strArray objectAtIndex:rows] objectAtIndex:9] boolValue];
+        friday = [[[strArray objectAtIndex:rows] objectAtIndex:10] boolValue];
+        saturday = [[[strArray objectAtIndex:rows] objectAtIndex:11] boolValue];
+        sunday = [[[strArray objectAtIndex:rows] objectAtIndex:12] boolValue];
+        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
+        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
+    }
 }
 @end

@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "UserInput.h"
 #import "Agency.h"
+#import "ViewController.h"
 
 @interface MainViewController : UIViewController
 {
@@ -17,10 +18,11 @@
     NSMutableArray* sortedListOfAgencies;
     NSArray *areasOfInterests;
     NSArray *listOfCities;
+    NSMutableArray* strArray;
 }
 -(void)addAgencies:(UserInput*) userSelections;
 -(void)shellSortListOfAgencies: (UserInput*) userPreferences;
-
+-(void)readFile;
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIPickerView *areaOfInterestPicker;
