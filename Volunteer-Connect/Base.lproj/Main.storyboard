@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="248" y="220"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="CuQ-YR-agb">
             <objects>
-                <viewController id="cVd-q4-vQr" sceneMemberID="viewController">
+                <viewController id="cVd-q4-vQr" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s59-G2-gHc"/>
                         <viewControllerLayoutGuide type="bottom" id="lnX-cQ-BFc"/>
@@ -145,6 +145,9 @@
                                 <state key="normal" title="Press to Start Searching">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startSearching:" destination="cVd-q4-vQr" eventType="touchUpInside" id="yJn-Tz-4Nn"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2H-IS-VNV">
                                 <rect key="frame" x="0.0" y="-6" width="414" height="44"/>
@@ -283,6 +286,17 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="areaOfInterestPicker" destination="2hA-i5-8en" id="NB9-Dd-f11"/>
+                        <outlet property="friday" destination="wWp-uV-CDg" id="4UB-GE-wLU"/>
+                        <outlet property="hours" destination="1TJ-vr-947" id="qlf-66-vGr"/>
+                        <outlet property="monday" destination="7yw-5P-k0L" id="Xvs-Af-62H"/>
+                        <outlet property="saturday" destination="GIB-GW-PaN" id="H6j-U7-gfa"/>
+                        <outlet property="sunday" destination="b3o-IB-yWx" id="FyF-Gj-FNa"/>
+                        <outlet property="thursday" destination="CDY-pb-l8N" id="xcg-QG-F5V"/>
+                        <outlet property="tuesday" destination="gYs-AN-5jV" id="65F-EO-Dxe"/>
+                        <outlet property="wednesday" destination="7Am-dQ-9V6" id="Y94-0t-dhP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gpe-ik-ydJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
