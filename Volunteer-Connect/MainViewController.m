@@ -74,7 +74,7 @@
 -(void)addAgencies:(UserInput*) userSelections{
     const int MINIMUM_MATCH = 40;
     
-    for(int i=0; i<3; i++)
+    for(int i=0; i<9; i++)
     {
         if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections] > MINIMUM_MATCH) {
             [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i])];
@@ -174,8 +174,8 @@
         Agency *x = [[Agency alloc] initWithName:name :city :target :phoneNumber :email :hours :monday :tuesday :wednesday :thursday :friday :saturday :sunday];
         
         [listOfAgencies addObject:x];
-        
-        NSLog(@"%@",[x getName]);
+        if([x getIsOpenFriday]){NSLog(@"true");}
+        //NSLog(@"%@",[x getIsOpenFriday]);
         
         //        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
 //        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
