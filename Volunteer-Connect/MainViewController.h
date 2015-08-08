@@ -24,7 +24,6 @@
 -(void)shellSortListOfAgencies: (UserInput*) userPreferences;
 -(void)readFile;
 @property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIPickerView *areaOfInterestPicker;
 @property (weak, nonatomic) IBOutlet UISwitch *monday;
 @property (weak, nonatomic) IBOutlet UISwitch *tuesday;

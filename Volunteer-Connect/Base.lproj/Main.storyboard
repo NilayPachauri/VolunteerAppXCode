@@ -342,6 +342,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="areaOfInterestPicker" destination="EME-Az-Ab4" id="vZg-Ag-mCo"/>
                         <outlet property="friday" destination="wWp-uV-CDg" id="4UB-GE-wLU"/>
                         <outlet property="hours" destination="1TJ-vr-947" id="qlf-66-vGr"/>
                         <outlet property="monday" destination="7yw-5P-k0L" id="Xvs-Af-62H"/>

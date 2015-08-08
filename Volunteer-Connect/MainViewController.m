@@ -14,17 +14,12 @@
 
 @implementation MainViewController
 
-@synthesize mapView = _mapView;
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
 @synthesize cityPicker = _cityPicker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    [self.mapView.delegate self];
-    [self.mapView setShowsUserLocation:YES];
-    
     areasOfInterests = [[NSArray alloc] initWithObjects:@"Children", @"Developmentally Disabled", @"Elderly", @"Socioeconomically Disadvantaged", nil];
     
     listOfCities = [[NSArray alloc] initWithObjects: @"Union City", @"Fremont", @"Milpitas", @"San Jose", @"Los Gatos", @"Cupertino", @"Sunnyvale", @"Mountain View", @"Los Altos", @"Palo Alto", @"Redwood City", @"San Francisco", nil];
@@ -32,11 +27,7 @@
     
 }
 
-- (void) mapView: (MKMapView *) mapView didUpdateUserLocation:(MKUserLocation *)userLocation    {
-    CLLocationCoordinate2D loc = [userLocation coordinate];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 500, 500);
-    [self.mapView setRegion:region animated:YES];
-}
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -143,6 +134,11 @@
     NSString* target;
     NSString* phoneNumber;
     NSString* email;
+
+    //NSString* selectedCity;
+    NSString* selectedInterest;
+
+    
     
     double hours;
     
@@ -153,6 +149,13 @@
     bool friday;
     bool saturday;
     bool sunday;
+    bool selectedMonday;
+    bool selectedTuesday;
+    bool selectedWednesday;
+    bool selectedThursday;
+    bool selectedFriday;
+    bool selectedSaturday;
+    bool selectedSunday;
     for (int rows = 1; rows < [strArray count]; rows++)    {
         
         name = [[strArray objectAtIndex:rows] objectAtIndex:0];
@@ -174,12 +177,16 @@
         Agency *x = [[Agency alloc] initWithName:name :city :target :phoneNumber :email :hours :monday :tuesday :wednesday :thursday :friday :saturday :sunday];
         
         [listOfAgencies addObject:x];
-        if([x getIsOpenFriday]){NSLog(@"true");}
+        //if([x getIsOpenFriday]){NSLog(@"true");}
         //NSLog(@"%@",[x getIsOpenFriday]);
         
         //        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
 //        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
     }
+    NSInteger pickerInput;
+    pickerInput=[_areaOfInterestPicker selectedRowInComponent:0];
+    selectedInterest=[areasOfInterests objectAtIndex:pickerInput];
+    
     
 }
 @end
