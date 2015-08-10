@@ -65,7 +65,7 @@
 -(void)addAgencies:(UserInput*) userSelections{
     const int MINIMUM_MATCH = 40;
     
-    for(int i=0; i<9; i++)
+    for(int i=0; i<3; i++)
     {
         if ([[listOfAgencies objectAtIndex:i] percentMatch: userSelections] > MINIMUM_MATCH) {
             [sortedListOfAgencies addObject:([listOfAgencies objectAtIndex:i])];
@@ -149,14 +149,18 @@
     bool friday;
     bool saturday;
     bool sunday;
-    bool selectedMonday;
-    bool selectedTuesday;
-    bool selectedWednesday;
-    bool selectedThursday;
-    bool selectedFriday;
-    bool selectedSaturday;
-    bool selectedSunday;
-    for (int rows = 1; rows < [strArray count]; rows++)    {
+    bool isSelectedMonday;
+    bool isSelectedTuesday;
+    bool isSelectedWednesday;
+    bool isSelectedThursday;
+    bool isSelectedFriday;
+    bool isSelectedSaturday;
+    bool isSelectedSunday;
+//    NSString* x= [@([strArray count]) stringValue];
+//    NSLog(@"%@", x);
+    
+
+    for (int rows = 1; rows < ([strArray count]); rows++)    {
         
         name = [[strArray objectAtIndex:rows] objectAtIndex:0];
         city = [[strArray objectAtIndex:rows] objectAtIndex:1];
@@ -177,8 +181,7 @@
         Agency *x = [[Agency alloc] initWithName:name :city :target :phoneNumber :email :hours :monday :tuesday :wednesday :thursday :friday :saturday :sunday];
         
         [listOfAgencies addObject:x];
-        //if([x getIsOpenFriday]){NSLog(@"true");}
-        //NSLog(@"%@",[x getIsOpenFriday]);
+        if([x getIsOpenMonday]){NSLog(@"true");}
         
         //        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
 //        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
@@ -187,6 +190,13 @@
     pickerInput=[_areaOfInterestPicker selectedRowInComponent:0];
     selectedInterest=[areasOfInterests objectAtIndex:pickerInput];
     
-    
+    isSelectedMonday=[_monday isOn];
+    isSelectedTuesday=[_tuesday isOn];
+    isSelectedWednesday=[_wednesday isOn];
+    isSelectedThursday=[_thursday isOn];
+    isSelectedFriday=[_friday isOn];
+    isSelectedSaturday=[_saturday isOn];
+    isSelectedSunday=[_sunday isOn];
+
 }
 @end
