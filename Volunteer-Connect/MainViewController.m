@@ -137,7 +137,8 @@
 
     //NSString* selectedCity;
     NSString* selectedInterest;
-
+    double selectedHour=2.00;
+    NSString* selectedCity=@"San Jose";
     
     
     double hours;
@@ -181,7 +182,7 @@
         Agency *x = [[Agency alloc] initWithName:name :city :target :phoneNumber :email :hours :monday :tuesday :wednesday :thursday :friday :saturday :sunday];
         
         [listOfAgencies addObject:x];
-        if([x getIsOpenMonday]){NSLog(@"true");}
+        //if([x getIsOpenMonday]){NSLog(@"true");}
         
         //        Agency *x=[[Agency] name:name city:city target:target: phoneNumber:phoneNumber email:email hours:hours monday:monday tuesday:tuesday wednesday:wednesday thursday:thursday friday:friday saturday:saturday sunday:sunday];
 //        [listOfAgencies addObject: Agency(name,city,target,phoneNumber,email,hours,monday,tuesday,wednesday,thursday,friday,saturday,sunday))];
@@ -197,6 +198,11 @@
     isSelectedFriday=[_friday isOn];
     isSelectedSaturday=[_saturday isOn];
     isSelectedSunday=[_sunday isOn];
+    
+    UserInput *userChoices=[[UserInput alloc] initWithName:selectedCity :selectedInterest :selectedHour :isSelectedMonday :isSelectedTuesday :isSelectedWednesday :isSelectedThursday :isSelectedFriday :isSelectedSaturday :isSelectedSunday];
+    
+    [self addAgencies:userChoices];
+    [self shellSortListOfAgencies:userChoices];
 
 }
 @end

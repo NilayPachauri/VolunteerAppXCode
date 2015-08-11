@@ -33,6 +33,6 @@
 -(bool)getUserIsSelectedFriday;
 -(bool)getUserIsSelectedSaturday;
 -(bool)getUserIsSelectedSunday;
--(id)init:(NSString*)city: (NSString*)areaOfInterest: (double)numberOfHours: (bool)isSelectedMonday: (bool)isSelectedTuesday: (bool)isSelectedWednesday: (bool)isSelectedThursday: (bool)isSelectedFriday: (bool)isSelectedSaturday:(bool)isSelectedSunday;
+-(id)initWithName:(NSString*)city: (NSString*)areaOfInterest: (double)numberOfHours: (bool)isSelectedMonday: (bool)isSelectedTuesday: (bool)isSelectedWednesday: (bool)isSelectedThursday: (bool)isSelectedFriday: (bool)isSelectedSaturday:(bool)isSelectedSunday;
 
 @end
