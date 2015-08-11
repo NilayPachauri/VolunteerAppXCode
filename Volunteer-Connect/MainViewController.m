@@ -198,6 +198,10 @@
     isSelectedFriday=[_friday isOn];
     isSelectedSaturday=[_saturday isOn];
     isSelectedSunday=[_sunday isOn];
+
+    NSString * theTitle = [_hours titleForSegmentAtIndex:_hours.selectedSegmentIndex];
+    selectedHour=[theTitle doubleValue];
+
     
     UserInput *userChoices=[[UserInput alloc] initWithName:selectedCity :selectedInterest :selectedHour :isSelectedMonday :isSelectedTuesday :isSelectedWednesday :isSelectedThursday :isSelectedFriday :isSelectedSaturday :isSelectedSunday];
     
