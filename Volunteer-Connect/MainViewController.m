@@ -7,12 +7,17 @@
 //
 
 #import "MainViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface MainViewController ()
+@interface MainViewController () <CLLocationManagerDelegate>
 
 @end
 
-@implementation MainViewController
+@implementation MainViewController{
+    CLLocationManager *manager;
+    CLGeocoder *geoCode;
+    CLPlacemark *placeMark;
+}
 
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
 @synthesize cityPicker = _cityPicker;
@@ -23,7 +28,8 @@
     areasOfInterests = [[NSArray alloc] initWithObjects:@"Children", @"Developmentally Disabled", @"Elderly", @"Socioeconomically Disadvantaged", nil];
     
     listOfCities = [[NSArray alloc] initWithObjects: @"Union City", @"Fremont", @"Milpitas", @"San Jose", @"Los Gatos", @"Cupertino", @"Sunnyvale", @"Mountain View", @"Los Altos", @"Palo Alto", @"Redwood City", @"San Francisco", nil];
-    
+    manager= [[CLLocationManager alloc] init];
+    geoCode= [[CLGeocoder alloc] init];
     
 }
 
@@ -128,6 +134,11 @@
 }
 
 - (IBAction)startSearching:(id)sender {
+    manager.delegate= self;
+    manager.desiredAccuracy=kCLLocationAccuracyBest;
+    [manager startUpdatingLocation];
+    
+    
     [self readFile];
     NSString* name;
     NSString* city;
@@ -203,10 +214,37 @@
     selectedHour=[theTitle doubleValue];
 
     
-    UserInput *userChoices=[[UserInput alloc] initWithName:selectedCity :selectedInterest :selectedHour :isSelectedMonday :isSelectedTuesday :isSelectedWednesday :isSelectedThursday :isSelectedFriday :isSelectedSaturday :isSelectedSunday];
+    //UserInput *userChoices=[[UserInput alloc] initWithName:selectedCity :selectedInterest :selectedHour :isSelectedMonday :isSelectedTuesday :isSelectedWednesday :isSelectedThursday :isSelectedFriday :isSelectedSaturday :isSelectedSunday];
     
-    [self addAgencies:userChoices];
-    [self shellSortListOfAgencies:userChoices];
+    //[self addAgencies:userChoices];
+    //[self shellSortListOfAgencies:userChoices];
 
+}
+
+#pragma mark CLLocationManagerDelegate Methods
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"Error: %@", error);
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"Location: %@", newLocation);
+    CLLocation *currentLocation= newLocation;
+    if(currentLocation!=nil){
+        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
+        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
+
+    }
+    [geoCode reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if(error==nil && [placemarks count]>0){
+            placeMark= [placemarks lastObject];
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ %@\n%@ %@\n$2\n",
+                          placeMark.subThoroughfare, placeMark.thoroughfare,
+                          placeMark.postalCode, placeMark.locality,
+                          placeMark.administrativeArea,
+                          placeMark.country]);
+        }
+        else{
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
 }
 @end
