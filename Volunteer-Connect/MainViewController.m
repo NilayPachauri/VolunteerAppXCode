@@ -31,6 +31,7 @@
 //    manager= [[CLLocationManager alloc] init];
 //    geoCode= [[CLGeocoder alloc] init];
     
+    
 }
 
 
