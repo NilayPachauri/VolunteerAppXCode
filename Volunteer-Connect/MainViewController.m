@@ -7,16 +7,16 @@
 //
 
 #import "MainViewController.h"
-//#import <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MainViewController () //<CLLocationManagerDelegate>
+@interface MainViewController () <CLLocationManagerDelegate>
 
 @end
 
 @implementation MainViewController{
-//    CLLocationManager *manager;
-//    CLGeocoder *geoCode;
-//    CLPlacemark *placeMark;
+    CLLocationManager *manager;
+    CLGeocoder *geoCode;
+    CLPlacemark *placeMark;
 }
 
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
@@ -28,8 +28,8 @@
     areasOfInterests = [[NSArray alloc] initWithObjects:@"Children", @"Developmentally Disabled", @"Elderly", @"Socioeconomically Disadvantaged", nil];
     
     listOfCities = [[NSArray alloc] initWithObjects: @"Union City", @"Fremont", @"Milpitas", @"San Jose", @"Los Gatos", @"Cupertino", @"Sunnyvale", @"Mountain View", @"Los Altos", @"Palo Alto", @"Redwood City", @"San Francisco", nil];
-//    manager= [[CLLocationManager alloc] init];
-//    geoCode= [[CLGeocoder alloc] init];
+    manager= [[CLLocationManager alloc] init];
+    geoCode= [[CLGeocoder alloc] init];
     
     
 }
@@ -135,9 +135,10 @@
 }
 
 - (IBAction)startSearching:(id)sender {
-//    manager.delegate= self;
-//    manager.desiredAccuracy=kCLLocationAccuracyBest;
-//    [manager startUpdatingLocation];
+    manager.delegate= self;
+    manager.desiredAccuracy=kCLLocationAccuracyBest;
+    [manager requestWhenInUseAuthorization];
+    [manager startUpdatingLocation];
     
     
     [self readFile];
@@ -222,30 +223,30 @@
 
 }
 
-//#pragma mark CLLocationManagerDelegate Methods
-//-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-//    NSLog(@"Error: %@", error);
-//}
-//-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-//    NSLog(@"Location: %@", newLocation);
-//    CLLocation *currentLocation= newLocation;
-//    if(currentLocation!=nil){
-//        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
-//        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
-//
-//    }
-//    [geoCode reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-//        if(error==nil && [placemarks count]>0){
-//            placeMark= [placemarks lastObject];
-//            NSLog(@"%@", [NSString stringWithFormat:@"%@ %@\n%@ %@\n$2\n",
-//                          placeMark.subThoroughfare, placeMark.thoroughfare,
-//                          placeMark.postalCode, placeMark.locality,
-//                          placeMark.administrativeArea,
-//                          placeMark.country]);
-//        }
-//        else{
-//            NSLog(@"%@", error.debugDescription);
-//        }
-//    }];
-//}
+#pragma mark CLLocationManagerDelegate Methods
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"Error: %@", error);
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"Location: %@", newLocation);
+    CLLocation *currentLocation= newLocation;
+    if(currentLocation!=nil){
+        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude]);
+        NSLog(@"%@", [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude]);
+
+    }
+    [geoCode reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        if(error==nil && [placemarks count]>0){
+            placeMark= [placemarks lastObject];
+            NSLog(@"%@", [NSString stringWithFormat:@"%@ %@\n%@ %@\n$2\n",
+                          placeMark.subThoroughfare, placeMark.thoroughfare,
+                          placeMark.postalCode, placeMark.locality,
+                          placeMark.administrativeArea,
+                          placeMark.country]);
+        }
+        else{
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+}
 @end
