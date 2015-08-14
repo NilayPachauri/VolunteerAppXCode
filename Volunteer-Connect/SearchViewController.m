@@ -1,25 +1,22 @@
 //
-//  ScrollViewController.m
+//  SearchViewController.m
 //  Volunteer-Connect
 //
-//  Created by Nilay on 7/23/15.
+//  Created by Akash Singhal on 8/13/15.
 //  Copyright (c) 2015 Akash Singhal. All rights reserved.
 //
 
-#import "ScrollViewController.h"
+#import "SearchViewController.h"
 
-@interface ScrollViewController ()
+@interface SearchViewController ()
 
 @end
 
-@implementation ScrollViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [scroller setScrollEnabled:YES];
-    [scroller setContentSize:(CGSizeMake(414, 736))];
 }
 
 - (void)didReceiveMemoryWarning {

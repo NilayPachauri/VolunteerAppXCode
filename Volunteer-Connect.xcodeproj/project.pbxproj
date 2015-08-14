@@ -11,6 +11,7 @@
 		387827541B64A7D600091F1E /* UserInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 387827531B64A7D600091F1E /* UserInput.m */; };
 		387827601B787FE200091F1E /* VolData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3878275F1B787FE200091F1E /* VolData.csv */; };
 		387F849B1B7C6B1100D87BA2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387F849A1B7C6B1100D87BA2 /* CoreLocation.framework */; };
+		38963CBA1B7DB6B1005A41BC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38963CB91B7DB6B1005A41BC /* SearchViewController.m */; };
 		38BD5A2B1B5CA1CE00009E84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BD5A2A1B5CA1CE00009E84 /* main.m */; };
 		38BD5A2E1B5CA1CE00009E84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BD5A2D1B5CA1CE00009E84 /* AppDelegate.m */; };
 		38BD5A311B5CA1CE00009E84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BD5A301B5CA1CE00009E84 /* ViewController.m */; };
@@ -19,7 +20,6 @@
 		38BD5A391B5CA1CE00009E84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BD5A371B5CA1CE00009E84 /* LaunchScreen.xib */; };
 		38BD5A451B5CA1CE00009E84 /* Volunteer_ConnectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38BD5A441B5CA1CE00009E84 /* Volunteer_ConnectTests.m */; };
 		A11EFFB61B5DB7A500855C60 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11EFFB51B5DB7A500855C60 /* MainViewController.m */; };
-		A1C709E11B620A0300677FAC /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C709E01B620A0300677FAC /* ScrollViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,8 @@
 		387827531B64A7D600091F1E /* UserInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInput.m; sourceTree = "<group>"; };
 		3878275F1B787FE200091F1E /* VolData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VolData.csv; path = ../../VolData.csv; sourceTree = "<group>"; };
 		387F849A1B7C6B1100D87BA2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		38963CB81B7DB6B1005A41BC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		38963CB91B7DB6B1005A41BC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		38BD5A251B5CA1CE00009E84 /* Volunteer-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BD5A291B5CA1CE00009E84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38BD5A2A1B5CA1CE00009E84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,8 +56,6 @@
 		38BD5A441B5CA1CE00009E84 /* Volunteer_ConnectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Volunteer_ConnectTests.m; sourceTree = "<group>"; };
 		A11EFFB41B5DB7A500855C60 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A11EFFB51B5DB7A500855C60 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		A1C709DF1B620A0300677FAC /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
-		A1C709E01B620A0300677FAC /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +104,8 @@
 				38BD5A2F1B5CA1CE00009E84 /* ViewController.h */,
 				38BD5A301B5CA1CE00009E84 /* ViewController.m */,
 				38BD5A321B5CA1CE00009E84 /* Main.storyboard */,
+				38963CB81B7DB6B1005A41BC /* SearchViewController.h */,
+				38963CB91B7DB6B1005A41BC /* SearchViewController.m */,
 				38BD5A351B5CA1CE00009E84 /* Images.xcassets */,
 				38BD5A371B5CA1CE00009E84 /* LaunchScreen.xib */,
 				38BD5A281B5CA1CE00009E84 /* Supporting Files */,
@@ -113,8 +115,6 @@
 				387827521B64A7D600091F1E /* UserInput.h */,
 				387827531B64A7D600091F1E /* UserInput.m */,
 				387827501B64A1F500091F1E /* Agency.m */,
-				A1C709DF1B620A0300677FAC /* ScrollViewController.h */,
-				A1C709E01B620A0300677FAC /* ScrollViewController.m */,
 				3878275F1B787FE200091F1E /* VolData.csv */,
 			);
 			path = "Volunteer-Connect";
@@ -247,13 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C709E11B620A0300677FAC /* ScrollViewController.m in Sources */,
 				38BD5A311B5CA1CE00009E84 /* ViewController.m in Sources */,
 				38BD5A2E1B5CA1CE00009E84 /* AppDelegate.m in Sources */,
 				38BD5A2B1B5CA1CE00009E84 /* main.m in Sources */,
 				387827511B64A1F500091F1E /* Agency.m in Sources */,
 				A11EFFB61B5DB7A500855C60 /* MainViewController.m in Sources */,
 				387827541B64A7D600091F1E /* UserInput.m in Sources */,
+				38963CBA1B7DB6B1005A41BC /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

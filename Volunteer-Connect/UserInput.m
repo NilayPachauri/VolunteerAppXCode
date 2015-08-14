@@ -9,7 +9,7 @@
 #import "UserInput.h"
 
 @implementation UserInput
--(id)init:(NSString*)city: (NSString*)areaOfInterest: (double)numberOfHours: (bool)isSelectedMonday: (bool)isSelectedTuesday: (bool)isSelectedWednesday: (bool)isSelectedThursday: (bool)isSelectedFriday: (bool)isSelectedSaturday:(bool)isSelectedSunday{
+-(id)initWithName:(NSString*)city: (NSString*)areaOfInterest: (double)numberOfHours: (bool)isSelectedMonday: (bool)isSelectedTuesday: (bool)isSelectedWednesday: (bool)isSelectedThursday: (bool)isSelectedFriday: (bool)isSelectedSaturday:(bool)isSelectedSunday{
     self = [super init];
     if (self != nil) {
         userCity = city;
