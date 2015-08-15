@@ -36,8 +36,8 @@
 */
 
 - (IBAction)displayAlertViewResult1:(id)sender {
-    UIAlertView *alertResult1=[[UIAlertView alloc]initWithTitle:[sortedListOfAgencies objectAtIndex:0] message:@"hi" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alertResult1 show];
+//    UIAlertView *alertResult1=[[UIAlertView alloc]initWithTitle:[sortedListOfAgencies objectAtIndex:0] message:@"hi" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [alertResult1 show];
 }
 
 - (IBAction)displayAlertViewResult2:(id)sender {

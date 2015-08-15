@@ -20,7 +20,6 @@
 }
 
 @synthesize areaOfInterestPicker = _areaOfInterestPicker;
-@synthesize cityPicker = _cityPicker;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +30,8 @@
     manager= [[CLLocationManager alloc] init];
     geoCode= [[CLGeocoder alloc] init];
     
-    
+    _areaOfInterestPicker.delegate = self;
+    _areaOfInterestPicker.dataSource = self;
 }
 
 
@@ -43,32 +43,23 @@
 }
 
 // The number of columns of data
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
 
 // The number of rows of data
-- (int)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (pickerView.tag == 0)    {
-        return listOfCities.count;
-    }
-    else    {
-        return areasOfInterests.count;
-    }
+    return [areasOfInterests count];
 }
 
 // The data to return for the row and component (column) that's being passed in
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (pickerView.tag == 0)    {
-        return listOfCities[row];
-    }
-    else    {
-        return areasOfInterests[row];
-    }
+    return [areasOfInterests objectAtIndex:row];
 }
+
 -(void)addAgencies:(UserInput*) userSelections{
     const int MINIMUM_MATCH = 0;
     

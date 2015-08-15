@@ -12,7 +12,7 @@
 #import "Agency.h"
 #import "ViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     NSMutableArray* listOfAgencies;
     NSMutableArray* sortedListOfAgencies;
@@ -23,7 +23,6 @@
 -(void)addAgencies:(UserInput*) userSelections;
 -(void)shellSortListOfAgencies: (UserInput*) userPreferences;
 -(void)readFile;
-@property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *areaOfInterestPicker;
 @property (weak, nonatomic) IBOutlet UISwitch *monday;
 @property (weak, nonatomic) IBOutlet UISwitch *tuesday;
