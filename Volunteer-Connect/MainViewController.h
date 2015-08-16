@@ -23,6 +23,14 @@
 -(void)addAgencies:(UserInput*) userSelections;
 -(void)shellSortListOfAgencies: (UserInput*) userPreferences;
 -(void)readFile;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+-(NSMutableArray*)getSortedListOfAgencies;
+@property (weak, nonatomic) IBOutlet UIPickerView *cityPicker;
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 @property (weak, nonatomic) IBOutlet UIPickerView *areaOfInterestPicker;
 @property (weak, nonatomic) IBOutlet UISwitch *monday;
 @property (weak, nonatomic) IBOutlet UISwitch *tuesday;

@@ -11,7 +11,10 @@
 #import "UserInput.h"
 #import "Agency.h"
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController{
+    NSMutableArray *sortedList;
+    MainViewController *control;
+}
 @property (weak, nonatomic) IBOutlet UIButton *result1;
 @property (weak, nonatomic) IBOutlet UIButton *result2;
 @property (weak, nonatomic) IBOutlet UIButton *result3;
